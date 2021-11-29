@@ -1,4 +1,4 @@
-package com.danilobrito.pokedex
+package com.danilobrito.pokedex.util
 
 class Constants {
 

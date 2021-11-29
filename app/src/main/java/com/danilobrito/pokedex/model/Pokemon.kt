@@ -1,4 +1,4 @@
-package com.danilobrito.pokedex
+package com.danilobrito.pokedex.model
 
 import android.os.Parcelable
 import kotlinx.android.parcel.Parcelize

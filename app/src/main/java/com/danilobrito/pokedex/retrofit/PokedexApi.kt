@@ -1,6 +1,6 @@
-package com.danilobrito.pokedex
+package com.danilobrito.pokedex.retrofit
 
-import com.danilobrito.pokedex.Constants.Companion.BASE_URL
+import com.danilobrito.pokedex.util.Constants
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
@@ -24,7 +24,7 @@ class PokedexApi {
         gsonConverterFactory: GsonConverterFactory
     ): Retrofit {
         return Retrofit.Builder()
-            .baseUrl(BASE_URL)
+            .baseUrl(Constants.BASE_URL)
             .client(okHttpClient)
             .addConverterFactory(gsonConverterFactory)
             .build()

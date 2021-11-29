@@ -1,5 +1,6 @@
-package com.danilobrito.pokedex
+package com.danilobrito.pokedex.retrofit
 
+import com.danilobrito.pokedex.model.PokemonResponse
 import retrofit2.http.GET
 import retrofit2.http.Query
 
