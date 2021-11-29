@@ -6,7 +6,7 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import java.util.concurrent.TimeUnit
 
-class PokedexApi {
+object NetworkModule {
 
     fun provideHttpClient(): OkHttpClient {
         return OkHttpClient.Builder()
@@ -30,7 +30,7 @@ class PokedexApi {
             .build()
     }
 
-    fun provideApiService(retrofit: Retrofit): PokemonServices {
-        return retrofit.create(PokemonServices::class.java)
+    fun provideApiService(retrofit: Retrofit): PokemonApi {
+        return retrofit.create(PokemonApi::class.java)
     }
 }

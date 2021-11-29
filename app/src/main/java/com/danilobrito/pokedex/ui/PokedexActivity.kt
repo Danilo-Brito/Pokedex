@@ -8,15 +8,15 @@ import com.danilobrito.pokedex.repository.PokedexRepository
 
 class PokedexActivity : AppCompatActivity() {
     private lateinit var recyclerView: RecyclerView
+    private lateinit var pokedexRepository: PokedexRepository
 
-    private val viewModel by lazy {
-        val repository = PokedexRepository()
-    }
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_pokedex)
         init()
+        fetchList()
     }
 
     private fun init() {
@@ -24,6 +24,6 @@ class PokedexActivity : AppCompatActivity() {
     }
 
     private fun fetchList(){
-        viewModel
+        pokedexRepository.getPokemon()
     }
 }
