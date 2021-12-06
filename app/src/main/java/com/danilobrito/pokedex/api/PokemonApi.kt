@@ -1,12 +1,11 @@
-package com.danilobrito.pokedex.retrofit
+package com.danilobrito.pokedex.api
 
 import com.danilobrito.pokedex.model.PokemonResponse
 import retrofit2.Response
 import retrofit2.http.GET
-import retrofit2.http.Query
 
 interface PokemonApi {
 
     @GET("pokemon")
-    fun getPokemon(): Response<PokemonResponse>
+    suspend fun getPokemon(): Response<PokemonResponse>
 }
