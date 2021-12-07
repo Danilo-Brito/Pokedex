@@ -1,5 +1,6 @@
 package com.danilobrito.pokedex.ui.adapter
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
@@ -36,11 +37,24 @@ class PokemonAdapter(
         val pokemon = pokemon[position]
 
         holder.name.text = pokemon.name
-        Glide
-            .with(context)
+        Glide.with(context)
             .load(pokemon.getImageUrl())
             .centerCrop()
-            .into(holder.image);
+            .into(holder.image)
+
+
+//        Glide.with(this).load(url)
+//            .listener(GlidePalette.with(url)
+//                .use(GlidePalette.Profile.MUTED_DARK)
+//                .intoBackground(textView)
+//                .intoTextColor(textView)
+//
+//                .use(GlidePalette.Profile.VIBRANT)
+//                .intoBackground(titleView, GlidePalette.Swatch.RGB)
+//                .intoTextColor(titleView, GlidePalette.Swatch.BODY_TEXT_COLOR)
+//                .crossfade(true)
+//            );
+//        .into(imageView)
     }
 
     override fun getItemCount() = pokemon.size
@@ -48,6 +62,7 @@ class PokemonAdapter(
     inner class PokemonViewHolder(itemView: View): RecyclerView.ViewHolder(itemView) {
         val name = itemView.name
         val image = itemView.image
+        val cardView = itemView.cardView
     }
 
     inner class UserListDiffCallback(
