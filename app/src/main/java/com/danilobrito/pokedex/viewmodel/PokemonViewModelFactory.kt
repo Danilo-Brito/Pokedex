@@ -2,7 +2,7 @@ package com.danilobrito.pokedex.viewmodel
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
-import com.danilobrito.pokedex.repository.PokemonRepository
+import com.danilobrito.pokedex.data.repository.PokemonRepository
 
 class PokemonViewModelFactory(private val repository: PokemonRepository): ViewModelProvider.Factory {
 

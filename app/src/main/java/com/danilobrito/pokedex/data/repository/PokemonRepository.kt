@@ -1,10 +1,8 @@
-package com.danilobrito.pokedex.repository
+package com.danilobrito.pokedex.data.repository
 
 import com.danilobrito.pokedex.model.PokemonResponse
-import com.danilobrito.pokedex.api.PokemonApi
-import com.danilobrito.pokedex.retrofit.RetrofitInstance
+import com.danilobrito.pokedex.di.RetrofitInstance
 import retrofit2.Response
-import retrofit2.http.GET
 
 class PokemonRepository {
 

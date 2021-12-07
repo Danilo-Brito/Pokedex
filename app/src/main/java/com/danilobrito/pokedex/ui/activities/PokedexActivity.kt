@@ -1,14 +1,12 @@
-package com.danilobrito.pokedex.ui.view
+package com.danilobrito.pokedex.ui.activities
 
 import android.os.Bundle
-import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.RecyclerView
 import com.danilobrito.pokedex.R
-import com.danilobrito.pokedex.model.PokemonResponse
-import com.danilobrito.pokedex.repository.PokemonRepository
+import com.danilobrito.pokedex.data.repository.PokemonRepository
 import com.danilobrito.pokedex.ui.adapter.PokemonAdapter
 import com.danilobrito.pokedex.viewmodel.PokemonViewModel
 import com.danilobrito.pokedex.viewmodel.PokemonViewModelFactory

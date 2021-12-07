@@ -1,4 +1,4 @@
-package com.danilobrito.pokedex.api
+package com.danilobrito.pokedex.data.network
 
 import com.danilobrito.pokedex.model.PokemonResponse
 import retrofit2.Response

@@ -9,10 +9,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.danilobrito.pokedex.R
 import com.danilobrito.pokedex.model.Pokemon
-import com.danilobrito.pokedex.model.PokemonResponse
-import com.danilobrito.pokedex.ui.view.PokedexActivity
 import kotlinx.android.synthetic.main.item_pokemon.view.*
-import java.net.URL
 
 class PokemonAdapter(
     private val context: Context,

@@ -4,7 +4,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.danilobrito.pokedex.model.PokemonResponse
-import com.danilobrito.pokedex.repository.PokemonRepository
+import com.danilobrito.pokedex.data.repository.PokemonRepository
 import kotlinx.coroutines.launch
 import retrofit2.Response
 
