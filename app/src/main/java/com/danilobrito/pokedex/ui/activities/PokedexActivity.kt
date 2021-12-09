@@ -2,7 +2,6 @@ package com.danilobrito.pokedex.ui.activities
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.RecyclerView
 import com.danilobrito.pokedex.R
@@ -25,7 +24,6 @@ class PokedexActivity : AppCompatActivity() {
         provide.get(PokemonViewModel::class.java)
     }
 
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setTheme(R.style.AppTheme)
@@ -41,7 +39,7 @@ class PokedexActivity : AppCompatActivity() {
 
     private fun findPokemon() {
         viewModel.getPokemon()
-        viewModel.myResponse.observe(this, Observer { response ->
+        viewModel.pokemonResponse.observe(this, { response ->
             if (response.isSuccessful){
                 adapter.pokemon = response.body()?.results!!
             }

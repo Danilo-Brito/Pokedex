@@ -1,8 +1,6 @@
 package com.danilobrito.pokedex.ui.adapter
 
-import android.annotation.SuppressLint
 import android.content.Context
-import android.graphics.Color
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -12,6 +10,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.danilobrito.pokedex.R
 import com.danilobrito.pokedex.model.Pokemon
+import com.danilobrito.pokedex.util.UserListDiffCallback
 import com.github.florent37.glidepalette.BitmapPalette
 import com.github.florent37.glidepalette.GlidePalette
 import com.google.android.material.card.MaterialCardView
@@ -85,27 +84,5 @@ class PokemonAdapter(
         val name = itemView.name
         val image = itemView.image
         val cardView = itemView.cardView
-    }
-
-    inner class UserListDiffCallback(
-        private val oldList: List<Pokemon>,
-        private val newList: List<Pokemon>
-    ) : DiffUtil.Callback() {
-
-        override fun areItemsTheSame(oldItemPosition: Int, newItemPosition: Int): Boolean {
-            return oldList[oldItemPosition].name.equals(newList[newItemPosition].name)
-        }
-
-        override fun getOldListSize(): Int {
-            return oldList.size
-        }
-
-        override fun getNewListSize(): Int {
-            return newList.size
-        }
-
-        override fun areContentsTheSame(oldItemPosition: Int, newItemPosition: Int): Boolean {
-            return true
-        }
     }
 }
