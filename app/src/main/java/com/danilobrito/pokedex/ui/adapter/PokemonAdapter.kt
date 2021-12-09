@@ -10,7 +10,8 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.danilobrito.pokedex.R
 import com.danilobrito.pokedex.model.Pokemon
-import com.danilobrito.pokedex.util.UserListDiffCallback
+import com.danilobrito.pokedex.model.PokemonResponse
+import com.danilobrito.pokedex.util.PokemonDiffCallback
 import com.github.florent37.glidepalette.BitmapPalette
 import com.github.florent37.glidepalette.GlidePalette
 import com.google.android.material.card.MaterialCardView
@@ -20,17 +21,17 @@ class PokemonAdapter(
     private val context: Context,
 ) : RecyclerView.Adapter<PokemonAdapter.PokemonViewHolder>() {
 
-    var pokemon = emptyList<Pokemon>()
-        set(value) {
-            val result = DiffUtil.calculateDiff(
-                UserListDiffCallback(
-                    field,
-                    value
-                )
-            )
-            result.dispatchUpdatesTo(this)
-            field = value
-        }
+    private var pokemon = emptyList<Pokemon>()
+//        set(value) {
+//            val result = DiffUtil.calculateDiff(
+//                UserListDiffCallback(
+//                    field,
+//                    value
+//                )
+//            )
+//            result.dispatchUpdatesTo(this)
+//            field = value
+//        }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PokemonViewHolder {
         val view = LayoutInflater.from(context).inflate(R.layout.item_pokemon, parent, false)
@@ -79,6 +80,13 @@ class PokemonAdapter(
     }
 
     override fun getItemCount() = pokemon.size
+
+    fun setData(newData: PokemonResponse) {
+        val pokemonDiffUtil = PokemonDiffCallback(pokemon, newData.results)
+        val diffUtilsResult = DiffUtil.calculateDiff(pokemonDiffUtil)
+        pokemon = newData.results
+        diffUtilsResult.dispatchUpdatesTo(this)
+    }
 
     inner class PokemonViewHolder(itemView: View): RecyclerView.ViewHolder(itemView) {
         val name = itemView.name

@@ -3,7 +3,7 @@ package com.danilobrito.pokedex.util
 import androidx.recyclerview.widget.DiffUtil
 import com.danilobrito.pokedex.model.Pokemon
 
-class UserListDiffCallback(
+class PokemonDiffCallback(
     private val oldList: List<Pokemon>,
     private val newList: List<Pokemon>
 ) : DiffUtil.Callback() {
