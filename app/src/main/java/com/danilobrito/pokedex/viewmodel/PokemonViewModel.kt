@@ -16,20 +16,17 @@ class PokemonViewModel(private val repository: PokemonRepository): ViewModel() {
 
     val pokemonResponse: MutableLiveData<NetworkResult<PokemonResponse>> = MutableLiveData()
 
-    fun getPokemon(){
-        viewModelScope.launch {
-/*            val response = repository.getPokemon()
-            pokemonResponse.value = response*/
+    fun getPokemon() = viewModelScope.launch {
 
             try {
                 val response = repository.getPokemon()
                 pokemonResponse.value = handleResponse(response)
+
             } catch (e: Exception){
                 pokemonResponse.value = NetworkResult.Error("Pokemons not found")
                 Log.i(Constants.TAG_ERROR, "getPokemon: $e")
             }
         }
-    }
 
     private fun handleResponse(response: Response<PokemonResponse>): NetworkResult<PokemonResponse>? {
         when{
