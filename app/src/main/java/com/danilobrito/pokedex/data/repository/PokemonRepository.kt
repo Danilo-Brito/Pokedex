@@ -1,7 +1,7 @@
 package com.danilobrito.pokedex.data.repository
 
-import com.danilobrito.pokedex.model.PokemonResponse
 import com.danilobrito.pokedex.di.RetrofitInstance
+import com.danilobrito.pokedex.model.PokemonResponse
 import retrofit2.Response
 
 class PokemonRepository {
@@ -9,5 +9,4 @@ class PokemonRepository {
     suspend fun getPokemon(): Response<PokemonResponse> {
         return RetrofitInstance.pokemonService.getPokemon()
     }
-
 }

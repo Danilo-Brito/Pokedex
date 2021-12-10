@@ -4,10 +4,14 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Users/danil/StudioProjects/Pokedex/app/src/main/res/drawable/ic_arrow.xml" value="0.1685185185185185" />
+        <entry key="..\:/Users/danil/StudioProjects/Pokedex/app/src/main/res/drawable/pokemon_icon_background.xml" value="0.37864583333333335" />
+        <entry key="..\:/Users/danil/StudioProjects/Pokedex/app/src/main/res/drawable/pokemon_splash_screen.xml" value="0.37864583333333335" />
         <entry key="..\:/Users/danil/StudioProjects/Pokedex/app/src/main/res/drawable/scrollbar.xml" value="0.1685185185185185" />
         <entry key="..\:/Users/danil/StudioProjects/Pokedex/app/src/main/res/layout/activity_main.xml" value="0.24230072463768115" />
         <entry key="..\:/Users/danil/StudioProjects/Pokedex/app/src/main/res/layout/activity_pokedex.xml" value="0.3625" />
         <entry key="..\:/Users/danil/StudioProjects/Pokedex/app/src/main/res/layout/item_pokemon.xml" value="0.26313405797101447" />
+        <entry key="..\:/Users/danil/StudioProjects/Pokedex/app/src/main/res/layout/placeholder_row_layout.xml" value="0.3625" />
+        <entry key="..\:/Users/danil/StudioProjects/Pokedex/app/src/main/res/layout/pokemon_splash_screen.xml" value="0.33" />
         <entry key="..\:/Users/danil/StudioProjects/Pokedex/app/src/main/res/layout/toolbar_home.xml" value="0.3446557971014493" />
         <entry key="app/src/main/res/layout/activity_pokedex.xml" value="0.375" />
         <entry key="app/src/main/res/layout/item_pokemon.xml" value="0.2536231884057971" />
