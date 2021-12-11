@@ -31,6 +31,10 @@ android {
     kotlinOptions {
         jvmTarget = '1.8'
     }
+
+    buildFeatures {
+        viewBinding true
+    }
 }
 
 dependencies {
@@ -78,6 +82,10 @@ dependencies {
     implementation 'com.facebook.shimmer:shimmer:0.5.0'
     implementation 'com.todkars:shimmer-recyclerview:0.4.1'
 
-    // Navigation Compose
-    implementation("androidx.navigation:navigation-compose:2.4.0-beta02")
+    // Koin
+    implementation "io.insert-koin:koin-core:3.1.4"
+    implementation "io.insert-koin:koin-android:3.1.4"
+    // Testing
+    testImplementation "io.insert-koin:koin-test:3.1.4"
+
 }

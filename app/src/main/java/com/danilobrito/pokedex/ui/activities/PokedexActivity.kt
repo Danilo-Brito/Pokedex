@@ -11,6 +11,8 @@ import com.danilobrito.pokedex.ui.adapter.PokemonAdapter
 import com.danilobrito.pokedex.util.NetworkResult
 import com.danilobrito.pokedex.viewmodel.PokemonViewModel
 import com.danilobrito.pokedex.viewmodel.PokemonViewModelFactory
+import org.koin.androidx.viewmodel.ext.android.viewModel
+import org.koin.java.KoinJavaComponent.inject
 
 class PokedexActivity : AppCompatActivity() {
     private lateinit var recyclerView: RecyclerView
@@ -19,12 +21,7 @@ class PokedexActivity : AppCompatActivity() {
         PokemonAdapter(context = this)
     }
 
-    private val viewModel by lazy {
-        val repository = PokemonRepository()
-        val factory = PokemonViewModelFactory(repository)
-        val provide = ViewModelProvider(this, factory)
-        provide.get(PokemonViewModel::class.java)
-    }
+    private val viewModel:PokemonViewModel by viewModel()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

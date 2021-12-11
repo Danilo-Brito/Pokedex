@@ -11,7 +11,7 @@ import retrofit2.Response
 
 class PokemonViewModel(private val repository: PokemonRepository): ViewModel() {
 
-    private val pokemonResponse: MutableLiveData<NetworkResult<PokemonResponse>> = MutableLiveData()
+    val pokemonResponse: MutableLiveData<NetworkResult<PokemonResponse>> = MutableLiveData()
 
     fun getPokemon() = viewModelScope.launch {
             try {
