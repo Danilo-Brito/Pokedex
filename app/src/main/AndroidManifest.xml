@@ -14,7 +14,7 @@
         android:theme="@style/AppTheme"
         android:name="AppApplication">
         <activity
-            android:name=".ui.activities.PokedexActivity"
+            android:name="com.danilobrito.pokedex.ui.view.activities.PokedexActivity"
             android:label="Home"
             android:exported="true">
             <intent-filter>

@@ -22,16 +22,6 @@ class PokemonAdapter(
 ) : RecyclerView.Adapter<PokemonAdapter.PokemonViewHolder>() {
 
     private var pokemon = emptyList<Pokemon>()
-//        set(value) {
-//            val result = DiffUtil.calculateDiff(
-//                UserListDiffCallback(
-//                    field,
-//                    value
-//                )
-//            )
-//            result.dispatchUpdatesTo(this)
-//            field = value
-//        }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PokemonViewHolder {
         val view = LayoutInflater.from(context).inflate(R.layout.item_pokemon, parent, false)
