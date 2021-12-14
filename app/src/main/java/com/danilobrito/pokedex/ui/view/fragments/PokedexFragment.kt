@@ -47,6 +47,7 @@ class PokedexFragment : Fragment() {
             when (response){
                 is NetworkResult.Success -> {
                     response.data?.let { adapter?.setData(it) }
+
                 }
 
                 is NetworkResult.Error -> {
@@ -55,6 +56,7 @@ class PokedexFragment : Fragment() {
             }
         })
 
+        viewModel.getPokemonDetail()
         viewModel.pokemonResponseDetails.observe(viewLifecycleOwner, { responsePokemonDetail ->
             when(responsePokemonDetail){
                 is NetworkResult.Success -> {

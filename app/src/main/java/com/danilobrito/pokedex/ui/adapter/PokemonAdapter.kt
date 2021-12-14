@@ -37,13 +37,13 @@ class PokemonAdapter(
         val image = holder.image
         val cardView = holder.cardView
 
-        if (detail.slot == 1){
-        holder.type_one.text = detail.type
-//        holder.type_two
-            }
+        if (detail.slot == 1) {
+            holder.type_one.text = detail.type[0].name
+        }else{
+            holder.type_one.text = detail.type[1].name
+        }
 
         loadImage(imageUrl, image)
-
         setCardColor(imageUrl, cardView, image)
     }
 
