@@ -4,6 +4,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.danilobrito.pokedex.data.repository.PokemonRepository
+import com.danilobrito.pokedex.model.PokemonDetail
 import com.danilobrito.pokedex.model.PokemonResponse
 import com.danilobrito.pokedex.util.NetworkResult
 import kotlinx.coroutines.launch
@@ -12,6 +13,8 @@ import retrofit2.Response
 class PokemonViewModel(private val repository: PokemonRepository): ViewModel() {
 
     val pokemonResponse: MutableLiveData<NetworkResult<PokemonResponse>> = MutableLiveData()
+
+    val pokemonResponseDetails: MutableLiveData<NetworkResult<PokemonDetail>> = MutableLiveData()
 
     fun getPokemon() = viewModelScope.launch {
             try {
@@ -23,7 +26,17 @@ class PokemonViewModel(private val repository: PokemonRepository): ViewModel() {
             }
         }
 
-    private fun handleResponse(response: Response<PokemonResponse>): NetworkResult<PokemonResponse>? {
+    fun getPokemonDetail() = viewModelScope.launch {
+        try {
+            val response = repository.getPokemonDetail()
+            pokemonResponseDetails.value = handleResponse(response)
+        }catch (e: Exception){
+            pokemonResponseDetails.value = NetworkResult.Error("Pokemon details not found")
+        }
+    }
+
+
+    private fun <T> handleResponse(response: Response<T>): NetworkResult<T> {
         when{
             response.isSuccessful -> {
                 val pokemon = response.body()

@@ -9,8 +9,7 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.danilobrito.pokedex.R
-import com.danilobrito.pokedex.model.Pokemon
-import com.danilobrito.pokedex.model.PokemonResponse
+import com.danilobrito.pokedex.model.*
 import com.danilobrito.pokedex.util.PokemonDiffCallback
 import com.github.florent37.glidepalette.BitmapPalette
 import com.github.florent37.glidepalette.GlidePalette
@@ -22,6 +21,7 @@ class PokemonAdapter(
 ) : RecyclerView.Adapter<PokemonAdapter.PokemonViewHolder>() {
 
     private var pokemon = emptyList<Pokemon>()
+    private var detail = emptyList<Types>()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PokemonViewHolder {
         val view = LayoutInflater.from(context).inflate(R.layout.item_pokemon, parent, false)
@@ -30,11 +30,17 @@ class PokemonAdapter(
 
     override fun onBindViewHolder(holder: PokemonViewHolder, position: Int) {
         val pokemon = pokemon[position]
+        val detail = detail[position]
 
         holder.name.text = pokemon.name
         val imageUrl = pokemon.getImageUrl()
         val image = holder.image
         val cardView = holder.cardView
+
+        if (detail.slot == 1){
+        holder.type_one.text = detail.type
+//        holder.type_two
+            }
 
         loadImage(imageUrl, image)
 
@@ -78,9 +84,15 @@ class PokemonAdapter(
         diffUtilsResult.dispatchUpdatesTo(this)
     }
 
+    fun setDataDetail(pokemonDetail: PokemonDetail) {
+        detail = pokemonDetail.types
+    }
+
     inner class PokemonViewHolder(itemView: View): RecyclerView.ViewHolder(itemView) {
         val name = itemView.name
         val image = itemView.image
         val cardView = itemView.cardView
+        val type_one = itemView.type1
+        val type_two = itemView.type2
     }
 }

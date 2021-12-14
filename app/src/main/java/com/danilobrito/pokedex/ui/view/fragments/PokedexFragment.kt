@@ -6,7 +6,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
-import androidx.recyclerview.widget.RecyclerView
 import com.danilobrito.pokedex.R
 import com.danilobrito.pokedex.ui.adapter.PokemonAdapter
 import com.danilobrito.pokedex.util.NetworkResult
@@ -20,7 +19,7 @@ class PokedexFragment : Fragment() {
     private val adapter by lazy {
         context?.let {
             PokemonAdapter(context = it)
-        } ?: throw IllegalArgumentException("Context invalidate")
+        } ?: throw IllegalArgumentException("Context error")
     }
 
     private val viewModel: PokemonViewModel by viewModel()
@@ -52,6 +51,18 @@ class PokedexFragment : Fragment() {
 
                 is NetworkResult.Error -> {
                     Toast.makeText(context, response.message.toString(), Toast.LENGTH_SHORT).show()
+                }
+            }
+        })
+
+        viewModel.pokemonResponseDetails.observe(viewLifecycleOwner, { responsePokemonDetail ->
+            when(responsePokemonDetail){
+                is NetworkResult.Success -> {
+                    responsePokemonDetail.data?.let { adapter?.setDataDetail(it) }
+                }
+
+                is NetworkResult.Error -> {
+                    Toast.makeText(context, responsePokemonDetail.message.toString(), Toast.LENGTH_SHORT).show()
                 }
             }
         })
