@@ -1,8 +1,5 @@
 package com.danilobrito.pokedex.model
 
-import kotlinx.android.parcel.Parcelize
-
-@Parcelize
 class PokemonDetail(
     val abilities: List<Abilities>,
     val base_experience: String,

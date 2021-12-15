@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <TextView
+        android:id="@+id/hp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="4dp"
+        android:text="HP"
+        android:textColor="@color/background"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/attack"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="12dp"
+        android:text="Attack"
+        android:textColor="@color/background"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/hp"/>
+
+    <TextView
+        android:id="@+id/sp_attack"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="12dp"
+        android:text="Sp. Atk"
+        android:textColor="@color/background"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/attack"/>
+
+    <TextView
+        android:id="@+id/defense"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="12dp"
+        android:text="Defence"
+        android:textColor="@color/background"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/sp_attack"/>
+
+    <TextView
+        android:id="@+id/sp_def"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="12dp"
+        android:text="Sp. Def"
+        android:textColor="@color/background"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/defense"/>
+
+    <TextView
+        android:id="@+id/speed"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="12dp"
+        android:text="Speed"
+        android:textColor="@color/background"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/sp_def" />
+
+    <ProgressBar
+        android:id="@+id/hp_progressBar"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="50dp"
+        android:layout_marginEnd="32dp"
+        android:progressDrawable="@drawable/progress_bar"
+        app:layout_constraintBottom_toBottomOf="@+id/hp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/hp"
+        app:layout_constraintTop_toTopOf="@+id/hp" />
+
+    <ProgressBar
+        android:id="@+id/atk_progressBar"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:progressDrawable="@drawable/progress_bar"
+        app:layout_constraintBottom_toBottomOf="@+id/attack"
+        app:layout_constraintEnd_toEndOf="@+id/hp_progressBar"
+        app:layout_constraintStart_toStartOf="@+id/hp_progressBar"
+        app:layout_constraintTop_toBottomOf="@+id/hp_progressBar" />
+
+    <ProgressBar
+        android:id="@+id/sp_atk_progressBar"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:progressDrawable="@drawable/progress_bar"
+        app:layout_constraintBottom_toBottomOf="@+id/sp_attack"
+        app:layout_constraintEnd_toEndOf="@+id/atk_progressBar"
+        app:layout_constraintStart_toStartOf="@+id/atk_progressBar"
+        app:layout_constraintTop_toBottomOf="@+id/atk_progressBar" />
+
+    <ProgressBar
+        android:id="@+id/df_progressBar"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:progressDrawable="@drawable/progress_bar"
+        app:layout_constraintBottom_toBottomOf="@+id/defense"
+        app:layout_constraintEnd_toEndOf="@+id/sp_atk_progressBar"
+        app:layout_constraintStart_toStartOf="@+id/sp_atk_progressBar"
+        app:layout_constraintTop_toBottomOf="@+id/sp_atk_progressBar" />
+
+    <ProgressBar
+        android:id="@+id/sp.df_progressBar"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:progressDrawable="@drawable/progress_bar"
+        app:layout_constraintBottom_toBottomOf="@+id/sp_def"
+        app:layout_constraintEnd_toEndOf="@+id/df_progressBar"
+        app:layout_constraintStart_toStartOf="@+id/df_progressBar"
+        app:layout_constraintTop_toBottomOf="@+id/df_progressBar" />
+
+    <ProgressBar
+        android:id="@+id/speed_progressBar"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:progressDrawable="@drawable/progress_bar"
+        app:layout_constraintBottom_toBottomOf="@+id/speed"
+        app:layout_constraintEnd_toEndOf="@+id/sp.df_progressBar"
+        app:layout_constraintStart_toStartOf="@+id/sp.df_progressBar"
+        app:layout_constraintTop_toBottomOf="@+id/sp.df_progressBar" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

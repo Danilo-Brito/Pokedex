@@ -85,4 +85,7 @@ dependencies {
     // Koin Testing
     testImplementation "io.insert-koin:koin-test:3.1.4"
 
+    //  MaterialDesing
+    implementation 'com.google.android.material:material:1.4.0'
+
 }

@@ -4,6 +4,7 @@ import com.danilobrito.pokedex.model.PokemonDetail
 import com.danilobrito.pokedex.model.PokemonResponse
 import retrofit2.Response
 import retrofit2.http.GET
+import retrofit2.http.Path
 
 interface PokemonApi {
 
@@ -12,6 +13,6 @@ interface PokemonApi {
 
     @GET("pokemon/{pokemonName}")
     suspend fun getPokemonDetails(
-        pokemonName: String
+        @Path("pokemonName") pokemonName: String
     ):Response<PokemonDetail>
 }

@@ -30,18 +30,11 @@ class PokemonAdapter(
 
     override fun onBindViewHolder(holder: PokemonViewHolder, position: Int) {
         val pokemon = pokemon[position]
-        val detail = detail[position]
 
-        holder.name.text = pokemon.name
-        val imageUrl = pokemon.getImageUrl()
-        val image = holder.image
-        val cardView = holder.cardView
-
-        if (detail.slot == 1) {
-            holder.type_one.text = detail.type[0].name
-        }else{
-            holder.type_one.text = detail.type[1].name
-        }
+            holder.name.text = pokemon.name
+            val imageUrl = pokemon.getImageUrl()
+            val image = holder.image
+            val cardView = holder.cardView
 
         loadImage(imageUrl, image)
         setCardColor(imageUrl, cardView, image)
@@ -84,15 +77,9 @@ class PokemonAdapter(
         diffUtilsResult.dispatchUpdatesTo(this)
     }
 
-    fun setDataDetail(pokemonDetail: PokemonDetail) {
-        detail = pokemonDetail.types
-    }
-
     inner class PokemonViewHolder(itemView: View): RecyclerView.ViewHolder(itemView) {
         val name = itemView.name
         val image = itemView.image
         val cardView = itemView.cardView
-        val type_one = itemView.type1
-        val type_two = itemView.type2
     }
 }

@@ -16,7 +16,7 @@ import java.lang.IllegalArgumentException
 
 class PokedexFragment : Fragment() {
 
-    private val adapter by lazy {
+    private val pokemonAdapter by lazy {
         context?.let {
             PokemonAdapter(context = it)
         } ?: throw IllegalArgumentException("Context error")
@@ -38,16 +38,15 @@ class PokedexFragment : Fragment() {
     }
 
     private fun setupRecyclerView() {
-        recyclerView.adapter = adapter
+        recyclerView.adapter = pokemonAdapter
     }
 
     private fun requestApiData() {
         viewModel.getPokemon()
         viewModel.pokemonResponse.observe(viewLifecycleOwner, { response ->
-            when (response){
+            when (response) {
                 is NetworkResult.Success -> {
-                    response.data?.let { adapter?.setData(it) }
-
+                    response.data?.let { pokemonAdapter?.setData(it) }
                 }
 
                 is NetworkResult.Error -> {
@@ -56,18 +55,22 @@ class PokedexFragment : Fragment() {
             }
         })
 
-        viewModel.getPokemonDetail()
+/*        viewModel.getPokemonDetail()
         viewModel.pokemonResponseDetails.observe(viewLifecycleOwner, { responsePokemonDetail ->
-            when(responsePokemonDetail){
+            when (responsePokemonDetail) {
                 is NetworkResult.Success -> {
-                    responsePokemonDetail.data?.let { adapter?.setDataDetail(it) }
+                    responsePokemonDetail.data?.let { TODO() } //Criar novo adapter
                 }
 
                 is NetworkResult.Error -> {
-                    Toast.makeText(context, responsePokemonDetail.message.toString(), Toast.LENGTH_SHORT).show()
+                    Toast.makeText(
+                        context,
+                        responsePokemonDetail.message.toString(),
+                        Toast.LENGTH_SHORT
+                    ).show()
                 }
             }
-        })
+        })*/
     }
 
 
