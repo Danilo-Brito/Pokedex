@@ -1,14 +1,11 @@
 package com.danilobrito.pokedex.viewmodel
 
-import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.danilobrito.pokedex.data.repository.PokemonRepository
-import com.danilobrito.pokedex.model.Pokemon
 import com.danilobrito.pokedex.model.PokemonDetail
 import com.danilobrito.pokedex.model.PokemonResponse
-import com.danilobrito.pokedex.util.Constants.Companion.TAG_ERROR
 import com.danilobrito.pokedex.util.NetworkResult
 import kotlinx.coroutines.launch
 import retrofit2.Response
@@ -40,13 +37,13 @@ class PokemonViewModel(private val repository: PokemonRepository): ViewModel() {
 
 
     private fun <T> handleResponse(response: Response<T>): NetworkResult<T> {
-        when{
+        return when{
             response.isSuccessful -> {
                 val pokemon = response.body()
-                return NetworkResult.Success(pokemon!!)
+                NetworkResult.Success(pokemon!!)
             }
             else -> {
-                return NetworkResult.Error(response.message())
+                NetworkResult.Error(response.message())
             }
         }
     }

@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import com.danilobrito.pokedex.R
+import com.danilobrito.pokedex.ui.PokemonItemClick
 import com.danilobrito.pokedex.ui.adapter.PokemonAdapter
 import com.danilobrito.pokedex.util.NetworkResult
 import com.danilobrito.pokedex.viewmodel.PokemonViewModel
@@ -14,11 +15,11 @@ import kotlinx.android.synthetic.main.fragment_pokedex.*
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import java.lang.IllegalArgumentException
 
-class PokedexFragment : Fragment() {
+class PokedexFragment : Fragment(), PokemonItemClick {
 
     private val pokemonAdapter by lazy {
         context?.let {
-            PokemonAdapter(context = it)
+            PokemonAdapter(context = it, pokemonClick = this)
         } ?: throw IllegalArgumentException("Context error")
     }
 
@@ -46,7 +47,7 @@ class PokedexFragment : Fragment() {
         viewModel.pokemonResponse.observe(viewLifecycleOwner, { response ->
             when (response) {
                 is NetworkResult.Success -> {
-                    response.data?.let { pokemonAdapter?.setData(it) }
+                    response.data?.let { pokemonAdapter.setData(it) }
                 }
 
                 is NetworkResult.Error -> {
@@ -54,24 +55,9 @@ class PokedexFragment : Fragment() {
                 }
             }
         })
-
-/*        viewModel.getPokemonDetail()
-        viewModel.pokemonResponseDetails.observe(viewLifecycleOwner, { responsePokemonDetail ->
-            when (responsePokemonDetail) {
-                is NetworkResult.Success -> {
-                    responsePokemonDetail.data?.let { TODO() } //Criar novo adapter
-                }
-
-                is NetworkResult.Error -> {
-                    Toast.makeText(
-                        context,
-                        responsePokemonDetail.message.toString(),
-                        Toast.LENGTH_SHORT
-                    ).show()
-                }
-            }
-        })*/
     }
 
-
+    override fun onClick(name: String, imageUrl: String) {
+        Toast.makeText(context, name, Toast.LENGTH_SHORT ).show()
+    }
 }
