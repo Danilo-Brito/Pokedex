@@ -1,5 +1,6 @@
 package com.danilobrito.pokedex.model
 
-class Forms {
-
-}
+class Forms(
+    val name: String,
+    val url: String
+)

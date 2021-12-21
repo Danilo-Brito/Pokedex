@@ -5,11 +5,10 @@ class PokemonDetail(
     val base_experience: String,
     val forms: List<Forms>,
     val height: String,
-    val held_items: Items,
+    val held_items: List<Items>,
     val moves: List<Moves>,
     val name: String,
-    val species: List<Species>,
-    val sprites: List<Sprites>,
+    val species: Species,
     val stats: List<Stats>,
     val types: List<Types>,
     val weight: String

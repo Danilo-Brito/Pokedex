@@ -1,6 +1,6 @@
 package com.danilobrito.pokedex.model
 
-class Type(
+class Ability(
     val name: String,
     val url: String
 )

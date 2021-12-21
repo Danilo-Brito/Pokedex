@@ -1,5 +1,6 @@
 package com.danilobrito.pokedex.model
 
-class Moves {
-
-}
+class Moves(
+    val name: String,
+    val url: String
+)

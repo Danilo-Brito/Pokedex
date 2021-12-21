@@ -9,6 +9,8 @@ import android.widget.Toast
 import com.danilobrito.pokedex.R
 import com.danilobrito.pokedex.ui.PokemonItemClick
 import com.danilobrito.pokedex.ui.adapter.PokemonAdapter
+import com.danilobrito.pokedex.util.Constants.Companion.POKEMON_NAME
+import com.danilobrito.pokedex.util.Constants.Companion.POKEMON_URL
 import com.danilobrito.pokedex.util.NetworkResult
 import com.danilobrito.pokedex.viewmodel.PokemonViewModel
 import kotlinx.android.synthetic.main.fragment_pokedex.*
@@ -35,14 +37,14 @@ class PokedexFragment : Fragment(), PokemonItemClick {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         setupRecyclerView()
-        requestApiData()
+        requestPokemon()
     }
 
     private fun setupRecyclerView() {
         recyclerView.adapter = pokemonAdapter
     }
 
-    private fun requestApiData() {
+    private fun requestPokemon() {
         viewModel.getPokemon()
         viewModel.pokemonResponse.observe(viewLifecycleOwner, { response ->
             when (response) {
@@ -58,6 +60,15 @@ class PokedexFragment : Fragment(), PokemonItemClick {
     }
 
     override fun onClick(name: String, imageUrl: String) {
-        Toast.makeText(context, name, Toast.LENGTH_SHORT ).show()
+        val transaction = activity?.supportFragmentManager?.beginTransaction()
+        val pokemonDetailFragment = PokemonDetailFragment()
+        val data = Bundle()
+        data.putString(POKEMON_NAME, name)
+        data.putString(POKEMON_URL, imageUrl)
+        pokemonDetailFragment.arguments = data
+        transaction?.replace(R.id.activity_container, pokemonDetailFragment)?.commit()
+//        requestPokemonDetail(name)
     }
+
+
 }

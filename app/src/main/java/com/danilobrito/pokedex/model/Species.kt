@@ -1,5 +1,6 @@
 package com.danilobrito.pokedex.model
 
-class Species {
-
-}
+class Species(
+    val name: String,
+    val url: String
+)
