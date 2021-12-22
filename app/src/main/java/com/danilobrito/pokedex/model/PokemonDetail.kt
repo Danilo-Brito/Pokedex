@@ -6,6 +6,7 @@ class PokemonDetail(
     val forms: List<Forms>,
     val height: String,
     val held_items: List<Items>,
+    val id: Int,
     val moves: List<Moves>,
     val name: String,
     val species: Species,

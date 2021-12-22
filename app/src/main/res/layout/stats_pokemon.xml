@@ -79,20 +79,22 @@
     <ProgressBar
         android:id="@+id/hp_progressBar"
         style="?android:attr/progressBarStyleHorizontal"
-        android:layout_width="300dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="50dp"
+        android:layout_width="250dp"
+        android:layout_height="18dp"
+        android:layout_marginStart="40dp"
         android:layout_marginEnd="32dp"
         android:progressDrawable="@drawable/progress_bar"
         app:layout_constraintBottom_toBottomOf="@+id/hp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/hp"
-        app:layout_constraintTop_toTopOf="@+id/hp" />
+        app:layout_constraintTop_toTopOf="@+id/hp"
+        app:layout_constraintVertical_bias="1.0" />
 
     <ProgressBar
         android:id="@+id/atk_progressBar"
         style="?android:attr/progressBarStyleHorizontal"
-        android:layout_width="300dp"
+        android:layout_width="250dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="15dp"
         android:progressDrawable="@drawable/progress_bar"
@@ -104,7 +106,7 @@
     <ProgressBar
         android:id="@+id/sp_atk_progressBar"
         style="?android:attr/progressBarStyleHorizontal"
-        android:layout_width="300dp"
+        android:layout_width="250dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="15dp"
         android:progressDrawable="@drawable/progress_bar"
@@ -116,7 +118,7 @@
     <ProgressBar
         android:id="@+id/df_progressBar"
         style="?android:attr/progressBarStyleHorizontal"
-        android:layout_width="300dp"
+        android:layout_width="250dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="15dp"
         android:progressDrawable="@drawable/progress_bar"
@@ -128,7 +130,7 @@
     <ProgressBar
         android:id="@+id/sp.df_progressBar"
         style="?android:attr/progressBarStyleHorizontal"
-        android:layout_width="300dp"
+        android:layout_width="250dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="15dp"
         android:progressDrawable="@drawable/progress_bar"
@@ -140,7 +142,7 @@
     <ProgressBar
         android:id="@+id/speed_progressBar"
         style="?android:attr/progressBarStyleHorizontal"
-        android:layout_width="300dp"
+        android:layout_width="250dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="15dp"
         android:progressDrawable="@drawable/progress_bar"

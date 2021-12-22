@@ -66,8 +66,9 @@ class PokedexFragment : Fragment(), PokemonItemClick {
         data.putString(POKEMON_NAME, name)
         data.putString(POKEMON_URL, imageUrl)
         pokemonDetailFragment.arguments = data
-        transaction?.replace(R.id.activity_container, pokemonDetailFragment)?.commit()
-//        requestPokemonDetail(name)
+        transaction?.replace(R.id.activity_container, pokemonDetailFragment)
+            ?.addToBackStack(null)
+            ?.commit()
     }
 
 

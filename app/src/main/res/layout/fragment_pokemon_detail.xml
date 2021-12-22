@@ -20,7 +20,7 @@
             android:descendantFocusability="blocksDescendants">
 
             <androidx.appcompat.widget.AppCompatImageView
-                android:id="@+id/arrow"
+                android:id="@+id/arrow_detail"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:paddingStart="12dp"
@@ -28,7 +28,7 @@
                 android:paddingEnd="6dp"
                 android:translationZ="100dp"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="@id/header"
+                app:layout_constraintTop_toTopOf="@id/header_detail"
                 app:srcCompat="@drawable/ic_arrow" />
 
             <androidx.appcompat.widget.AppCompatTextView
@@ -40,11 +40,11 @@
                 android:textColor="@color/white"
                 android:textSize="18sp"
                 android:translationZ="100dp"
-                app:layout_constraintStart_toEndOf="@id/arrow"
-                app:layout_constraintTop_toTopOf="@id/arrow" />
+                app:layout_constraintStart_toEndOf="@id/arrow_detail"
+                app:layout_constraintTop_toTopOf="@id/arrow_detail" />
 
             <androidx.appcompat.widget.AppCompatTextView
-                android:id="@+id/index"
+                android:id="@+id/index_detail"
                 tools:text="#001"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -54,11 +54,11 @@
                 android:textSize="18sp"
                 android:textStyle="bold"
                 android:translationZ="100dp"
-                app:layout_constraintEnd_toEndOf="@id/header"
-                app:layout_constraintTop_toTopOf="@id/header" />
+                app:layout_constraintEnd_toEndOf="@id/header_detail"
+                app:layout_constraintTop_toTopOf="@id/header_detail" />
 
             <androidx.appcompat.widget.AppCompatTextView
-                android:id="@+id/name"
+                android:id="@+id/name_detail"
                 tools:text="Bulbasaur"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -71,25 +71,10 @@
                 android:translationZ="100dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/header" />
-
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:id="@+id/typeLayout"
-                android:layout_width="wrap_content"
-                android:layout_height="30dp"
-                android:layout_marginTop="5dp"
-                app:layout_constraintEnd_toEndOf="@+id/name"
-                app:layout_constraintStart_toStartOf="@+id/name"
-                app:layout_constraintTop_toBottomOf="@+id/name">
-
-                <include
-                    android:id="@+id/typePokemon"
-                    layout="@layout/item_type_pokemon" />
-
-            </androidx.constraintlayout.widget.ConstraintLayout>
+                app:layout_constraintTop_toBottomOf="@id/header_detail" />
 
             <com.google.android.material.imageview.ShapeableImageView
-                android:id="@+id/header"
+                android:id="@+id/header_detail"
                 android:layout_width="match_parent"
                 android:layout_height="260dp"
                 android:background="@color/colorPrimary"
@@ -99,82 +84,53 @@
                 app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.CardView" />
 
             <androidx.appcompat.widget.AppCompatImageView
-                android:id="@+id/image"
+                android:id="@+id/image_detail"
                 android:layout_width="190dp"
                 android:layout_height="190dp"
                 android:layout_marginBottom="20dp"
                 android:scaleType="center"
                 android:translationZ="100dp"
-                app:layout_constraintBottom_toBottomOf="@id/header"
+                app:layout_constraintBottom_toBottomOf="@id/header_detail"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent" />
 
             <ProgressBar
                 android:id="@+id/progressbar"
-                tools:visibility="gone"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:visibility="gone"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="parent"
+                tools:visibility="gone" />
 
-            <androidx.appcompat.widget.AppCompatTextView
-                android:id="@+id/weight"
-                style="@style/TextStyle"
-                tools:text="24.0 KG"
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/typeLayout"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textColor="@color/background"
-                android:textSize="21sp"
-                app:layout_constraintEnd_toStartOf="@id/height"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/typeLayout" />
+                android:layout_marginTop="5dp"
+                app:layout_constraintEnd_toEndOf="@+id/name_detail"
+                app:layout_constraintStart_toStartOf="@+id/name_detail"
+                app:layout_constraintTop_toBottomOf="@+id/name_detail">
 
-            <androidx.appcompat.widget.AppCompatTextView
-                android:id="@+id/height"
-                style="@style/TextStyle"
-                tools:text="11 M"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textColor="@color/background"
-                android:textSize="21sp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@id/weight"
-                app:layout_constraintTop_toTopOf="@id/weight" />
+                <include
+                    android:id="@+id/typePokemon"
+                    layout="@layout/item_type_pokemon" />
 
-            <androidx.appcompat.widget.AppCompatTextView
-                android:id="@+id/weight_title"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Weight"
-                android:textColor="@color/background"
-                app:layout_constraintEnd_toStartOf="@id/height"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/weight" />
-
-            <androidx.appcompat.widget.AppCompatTextView
-                android:id="@+id/height_title"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Height"
-                android:textColor="@color/background"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@id/weight"
-                app:layout_constraintTop_toBottomOf="@id/height" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
 
             <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/stats_title"
                 style="@style/TextStyle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="12dp"
                 android:text="Stats"
                 android:textColor="@color/background"
                 android:textSize="21sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/weight_title" />
+                app:layout_constraintTop_toBottomOf="@+id/typeLayout" />
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/statsLayout"

@@ -1,33 +1,80 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content">
 
     <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/type1"
+        android:id="@+id/type1_detail"
         style="@style/TextStyleType"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="30dp"
         android:background="@drawable/custom_button"
         android:backgroundTint="@color/grass"
         android:text="Grass"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="TouchTargetSizeCheck" />
 
     <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/type2"
+        android:id="@+id/type2_detail"
         style="@style/TextStyleType"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="30dp"
+        android:layout_marginStart="30dp"
         android:background="@drawable/custom_button"
         android:backgroundTint="@color/normal"
         android:text="Normal"
-        android:layout_marginStart="30dp"
-        app:layout_constraintBottom_toBottomOf="@+id/type1"
+        app:layout_constraintBottom_toBottomOf="@+id/type1_detail"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@+id/type1"
-        app:layout_constraintTop_toTopOf="@+id/type1" />
+        app:layout_constraintStart_toEndOf="@+id/type1_detail"
+        app:layout_constraintTop_toTopOf="@+id/type1_detail"
+        tools:ignore="TouchTargetSizeCheck" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/weight_detail"
+        style="@style/TextStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/background"
+        android:textSize="21sp"
+        app:layout_constraintEnd_toEndOf="@+id/type1_detail"
+        app:layout_constraintStart_toStartOf="@+id/type1_detail"
+        app:layout_constraintTop_toBottomOf="@+id/type1_detail"
+        tools:text="24.0 KG" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/height_detail"
+        style="@style/TextStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/background"
+        android:textSize="21sp"
+        app:layout_constraintEnd_toEndOf="@+id/type2_detail"
+        app:layout_constraintStart_toStartOf="@+id/type2_detail"
+        app:layout_constraintTop_toBottomOf="@+id/type2_detail"
+        tools:text="11 M" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/weight_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Weight"
+        android:textColor="@color/background"
+        app:layout_constraintEnd_toEndOf="@+id/weight_detail"
+        app:layout_constraintStart_toStartOf="@+id/weight_detail"
+        app:layout_constraintTop_toBottomOf="@+id/weight_detail" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/height_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Height"
+        android:textColor="@color/background"
+        app:layout_constraintEnd_toEndOf="@+id/height_detail"
+        app:layout_constraintStart_toStartOf="@+id/height_detail"
+        app:layout_constraintTop_toBottomOf="@+id/height_detail" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

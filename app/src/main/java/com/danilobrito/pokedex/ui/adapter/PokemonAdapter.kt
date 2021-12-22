@@ -5,18 +5,14 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
-import androidx.appcompat.widget.AppCompatImageView
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
-import com.bumptech.glide.Glide
 import com.danilobrito.pokedex.R
 import com.danilobrito.pokedex.model.Pokemon
 import com.danilobrito.pokedex.model.PokemonResponse
 import com.danilobrito.pokedex.ui.PokemonItemClick
+import com.danilobrito.pokedex.util.GlideUtil
 import com.danilobrito.pokedex.util.PokemonDiffCallback
-import com.github.florent37.glidepalette.BitmapPalette
-import com.github.florent37.glidepalette.GlidePalette
-import com.google.android.material.card.MaterialCardView
 import kotlinx.android.synthetic.main.item_pokemon.view.*
 
 class PokemonAdapter(
@@ -32,6 +28,7 @@ class PokemonAdapter(
     }
 
     override fun onBindViewHolder(holder: PokemonViewHolder, position: Int) {
+        val glideUtil = GlideUtil()
         val pokemon = pokemon[position]
 
         holder.name.text = pokemon.name
@@ -39,40 +36,13 @@ class PokemonAdapter(
         val image = holder.image
         val cardView = holder.cardView
 
-        loadImage(imageUrl, image)
-        setCardColor(imageUrl, cardView, image)
+        glideUtil.loadImage(imageUrl, image, context)
+
+        glideUtil.setCardColor(imageUrl, cardView, image, context)
 
         cardView.setOnClickListener {
             pokemonClick.onClick(pokemon.name, pokemon.getImageUrl())
         }
-    }
-
-    private fun setCardColor(
-        imageUrl: String,
-        cardView: MaterialCardView,
-        image: AppCompatImageView
-    ) {
-        Glide.with(context).load(imageUrl)
-            .listener(
-                GlidePalette.with(imageUrl)
-                    .use(BitmapPalette.Profile.MUTED_LIGHT)
-                    .intoCallBack { palette ->
-                        val rgb = palette?.dominantSwatch?.rgb
-                        if (rgb != null) {
-                            cardView.setCardBackgroundColor(rgb)
-                        }
-                    }.crossfade(true)
-            ).into(image)
-    }
-
-    private fun loadImage(
-        imageUrl: String,
-        image: AppCompatImageView
-    ) {
-        Glide.with(context)
-            .load(imageUrl)
-            .centerCrop()
-            .into(image)
     }
 
     override fun getItemCount() = pokemon.size
@@ -89,8 +59,8 @@ class PokemonAdapter(
     }
 
     inner class PokemonViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        val name = itemView.name
-        val image = itemView.image
+        val name = itemView.name_detail
+        val image = itemView.image_detail
         val cardView = itemView.cardView
     }
 }
