@@ -1,10 +1,13 @@
 package com.danilobrito.pokedex.ui.view.fragments
 
+import android.animation.ObjectAnimator
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ProgressBar
 import android.widget.Toast
+import androidx.appcompat.widget.AppCompatButton
 import androidx.fragment.app.Fragment
 import com.danilobrito.pokedex.R
 import com.danilobrito.pokedex.model.PokemonDetail
@@ -16,6 +19,7 @@ import com.danilobrito.pokedex.util.TypeColor
 import com.danilobrito.pokedex.viewmodel.PokemonViewModel
 import kotlinx.android.synthetic.main.fragment_pokemon_detail.*
 import kotlinx.android.synthetic.main.item_type_pokemon.*
+import kotlinx.android.synthetic.main.stats_pokemon.*
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class PokemonDetailFragment : Fragment() {
@@ -74,32 +78,78 @@ class PokemonDetailFragment : Fragment() {
     }
 
     private fun bindView(pokemonDetail: PokemonDetail) {
-        val typeColor_1st = pokemonDetail.types[0].type.name
-
         index_detail.text = pokemonDetail.id.toString()
         glideUtil.loadImage(pokemonUrl, image_detail, context)
         glideUtil.setCardColor(pokemonUrl, header_detail, image_detail, context)
         name_detail.text = pokemonDetail.name
+
+        val typeColor_1st = pokemonDetail.types[0].type.name
+        typeColor(typeColor_1st, type1_detail)
         type1_detail.text = typeColor_1st
-        typeColor(typeColor_1st)
 
         if (pokemonDetail.types.size > 1) {
             val typeColor_2nd = pokemonDetail.types[1].type.name
+            typeColor(typeColor_2nd, type2_detail)
             type2_detail.text = typeColor_2nd
-            typeColor(typeColor_2nd)
         }
 
         weight_detail.text = pokemonDetail.weight
         height_detail.text = pokemonDetail.height
 
-//        toast(pokemonDetail.name)
+        progressBar(pokemonDetail)
     }
 
-    private fun typeColor(color: String) {
-        typeColor.setColorType(color, type1_detail, context)
+    private fun progressBar(pokemonDetail: PokemonDetail) {
+        hp_progressBar.max = 200
+        atk_progressBar.max = 200
+        sp_atk_progressBar.max = 200
+        df_progressBar.max = 200
+        sp_df_progressBar.max = 200
+        speed_progressBar.max = 200
+
+        val hp = pokemonDetail.stats[0].base_stat
+        val atk = pokemonDetail.stats[1].base_stat
+        val def = pokemonDetail.stats[2].base_stat
+        val spAtk = pokemonDetail.stats[3].base_stat
+        val spDef = pokemonDetail.stats[4].base_stat
+        val speed = pokemonDetail.stats[5].base_stat
+
+
+        hp_value.text = hp.toString()
+        atk_value.text = atk.toString()
+        spAtk_value.text = spAtk.toString()
+        def_value.text = def.toString()
+        spDef_value.text = spDef.toString()
+        speed_value.text = speed.toString()
+
+        animateProgress(hp_progressBar, hp)
+        animateProgress(atk_progressBar, atk)
+        animateProgress(sp_atk_progressBar, spAtk)
+        animateProgress(df_progressBar, def)
+        animateProgress(sp_df_progressBar, spDef)
+        animateProgress(speed_progressBar, speed)
+
+        setColorProgress(hp_progressBar, hp)
+        setColorProgress(atk_progressBar, atk)
+        setColorProgress(sp_atk_progressBar, spAtk)
+        setColorProgress(df_progressBar, def)
+        setColorProgress(sp_df_progressBar, spDef)
+        setColorProgress(speed_progressBar, speed)
     }
 
-    fun toast(name: String) {
-        Toast.makeText(context, "Success $name", Toast.LENGTH_SHORT).show()
+    private fun setColorProgress(progressBar: ProgressBar?, value: Int) {
+        if (value >= 100) {
+            progressBar?.progressTintList = context?.resources?.getColorStateList(R.color.grass)!!
+        }
+    }
+
+    private fun animateProgress(progressBar: ProgressBar?, baseStat: Int) {
+        ObjectAnimator.ofInt(progressBar, "progress", baseStat)
+            .setDuration(2000)
+            .start()
+    }
+
+    private fun typeColor(color: String, type_detail: AppCompatButton) {
+        typeColor.setColorType(color,type_detail, context)
     }
 }

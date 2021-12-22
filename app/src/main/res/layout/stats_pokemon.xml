@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
@@ -8,7 +9,7 @@
         android:id="@+id/hp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
+        android:layout_marginStart="50dp"
         android:layout_marginTop="4dp"
         android:text="@string/hp"
         android:textColor="@color/background"
@@ -20,76 +21,152 @@
         android:id="@+id/attack"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
         android:layout_marginTop="12dp"
         android:text="@string/attack"
         android:textColor="@color/background"
         android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/hp"/>
+        app:layout_constraintEnd_toEndOf="@+id/hp"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="@+id/hp"
+        app:layout_constraintTop_toBottomOf="@id/hp" />
 
     <TextView
         android:id="@+id/sp_attack"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
         android:layout_marginTop="12dp"
         android:text="@string/sp_atk"
         android:textColor="@color/background"
         android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/attack"/>
+        app:layout_constraintEnd_toEndOf="@+id/attack"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="@+id/attack"
+        app:layout_constraintTop_toBottomOf="@id/attack" />
 
     <TextView
         android:id="@+id/defense"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
         android:layout_marginTop="12dp"
         android:text="@string/defence"
         android:textColor="@color/background"
         android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/sp_attack"/>
+        app:layout_constraintEnd_toEndOf="@+id/sp_attack"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="@+id/sp_attack"
+        app:layout_constraintTop_toBottomOf="@id/sp_attack" />
 
     <TextView
         android:id="@+id/sp_def"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
         android:layout_marginTop="12dp"
         android:text="@string/sp_def"
         android:textColor="@color/background"
         android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/defense"/>
+        app:layout_constraintEnd_toEndOf="@+id/defense"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="@+id/defense"
+        app:layout_constraintTop_toBottomOf="@id/defense" />
 
     <TextView
         android:id="@+id/speed"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
         android:layout_marginTop="12dp"
         android:text="@string/speed"
         android:textColor="@color/background"
         android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/sp_def"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/sp_def"
         app:layout_constraintTop_toBottomOf="@id/sp_def" />
+
+    <TextView
+        android:id="@+id/hp_value"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:textColor="@color/background"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/hp"
+        app:layout_constraintStart_toEndOf="@+id/hp"
+        app:layout_constraintTop_toTopOf="@+id/hp"
+        tools:text="80" />
+
+    <TextView
+        android:id="@+id/atk_value"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/background"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/attack"
+        app:layout_constraintEnd_toEndOf="@+id/hp_value"
+        app:layout_constraintStart_toStartOf="@+id/hp_value"
+        app:layout_constraintTop_toTopOf="@+id/attack"
+        tools:text="80" />
+
+    <TextView
+        android:id="@+id/spAtk_value"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/background"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/sp_attack"
+        app:layout_constraintEnd_toEndOf="@+id/atk_value"
+        app:layout_constraintStart_toStartOf="@+id/atk_value"
+        app:layout_constraintTop_toTopOf="@+id/sp_attack"
+        tools:text="80" />
+
+    <TextView
+        android:id="@+id/def_value"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/background"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/defense"
+        app:layout_constraintEnd_toEndOf="@+id/spAtk_value"
+        app:layout_constraintStart_toStartOf="@+id/spAtk_value"
+        app:layout_constraintTop_toTopOf="@+id/defense"
+        tools:text="80" />
+
+    <TextView
+        android:id="@+id/spDef_value"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/background"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/sp_def"
+        app:layout_constraintEnd_toEndOf="@+id/def_value"
+        app:layout_constraintStart_toStartOf="@+id/def_value"
+        app:layout_constraintTop_toTopOf="@+id/sp_def"
+        tools:text="80" />
+
+    <TextView
+        android:id="@+id/speed_value"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/background"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/speed"
+        app:layout_constraintEnd_toEndOf="@+id/spDef_value"
+        app:layout_constraintStart_toStartOf="@+id/spDef_value"
+        app:layout_constraintTop_toTopOf="@+id/speed"
+        tools:text="80" />
 
     <ProgressBar
         android:id="@+id/hp_progressBar"
         style="?android:attr/progressBarStyleHorizontal"
         android:layout_width="250dp"
         android:layout_height="18dp"
-        android:layout_marginStart="40dp"
-        android:layout_marginEnd="32dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="30dp"
         android:progressDrawable="@drawable/progress_bar"
         app:layout_constraintBottom_toBottomOf="@+id/hp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@+id/hp"
-        app:layout_constraintTop_toTopOf="@+id/hp"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/hp_value"
+        app:layout_constraintTop_toTopOf="@+id/hp" />
 
     <ProgressBar
         android:id="@+id/atk_progressBar"
@@ -128,7 +205,7 @@
         app:layout_constraintTop_toBottomOf="@+id/sp_atk_progressBar" />
 
     <ProgressBar
-        android:id="@+id/sp.df_progressBar"
+        android:id="@+id/sp_df_progressBar"
         style="?android:attr/progressBarStyleHorizontal"
         android:layout_width="250dp"
         android:layout_height="wrap_content"
@@ -147,9 +224,9 @@
         android:layout_marginTop="15dp"
         android:progressDrawable="@drawable/progress_bar"
         app:layout_constraintBottom_toBottomOf="@+id/speed"
-        app:layout_constraintEnd_toEndOf="@+id/sp.df_progressBar"
-        app:layout_constraintStart_toStartOf="@+id/sp.df_progressBar"
-        app:layout_constraintTop_toBottomOf="@+id/sp.df_progressBar" />
+        app:layout_constraintEnd_toEndOf="@+id/sp_df_progressBar"
+        app:layout_constraintStart_toStartOf="@+id/sp_df_progressBar"
+        app:layout_constraintTop_toBottomOf="@+id/sp_df_progressBar" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
