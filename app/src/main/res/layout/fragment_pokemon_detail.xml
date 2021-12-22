@@ -125,7 +125,7 @@
                 style="@style/TextStyle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Stats"
+                android:text="@string/stats_detail"
                 android:textColor="@color/background"
                 android:textSize="21sp"
                 app:layout_constraintEnd_toEndOf="parent"

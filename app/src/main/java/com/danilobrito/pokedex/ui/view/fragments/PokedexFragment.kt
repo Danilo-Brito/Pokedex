@@ -7,7 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import com.danilobrito.pokedex.R
-import com.danilobrito.pokedex.ui.PokemonItemClick
+import com.danilobrito.pokedex.ui.adapter.extension.PokemonItemClick
 import com.danilobrito.pokedex.ui.adapter.PokemonAdapter
 import com.danilobrito.pokedex.util.Constants.Companion.POKEMON_NAME
 import com.danilobrito.pokedex.util.Constants.Companion.POKEMON_URL

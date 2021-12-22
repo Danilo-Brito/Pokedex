@@ -54,7 +54,6 @@ class PokemonDetailFragment : Fragment() {
     override fun onResume() {
         super.onResume()
         arrow_detail.setOnClickListener {
-//            getFragmentManager()?.popBackStackImmediate()
             activity?.supportFragmentManager?.popBackStack()
         }
     }

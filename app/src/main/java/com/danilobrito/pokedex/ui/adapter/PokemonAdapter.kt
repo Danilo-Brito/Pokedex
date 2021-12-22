@@ -10,7 +10,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.danilobrito.pokedex.R
 import com.danilobrito.pokedex.model.Pokemon
 import com.danilobrito.pokedex.model.PokemonResponse
-import com.danilobrito.pokedex.ui.PokemonItemClick
+import com.danilobrito.pokedex.ui.adapter.extension.PokemonItemClick
 import com.danilobrito.pokedex.util.GlideUtil
 import com.danilobrito.pokedex.util.PokemonDiffCallback
 import kotlinx.android.synthetic.main.item_pokemon.view.*
